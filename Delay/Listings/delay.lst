@@ -1,0 +1,43 @@
+C51 COMPILER V9.60.7.0   DELAY                                                             12/03/2023 22:52:28 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Objects\delay.obj
+COMPILER INVOKED BY: E:\Electrical\Application\Keil_C51\C51\BIN\C51.EXE delay.c OPTIMIZE(8,SPEED) DEBUG OBJECTEXTEND PRI
+                    -NT(.\Listings\delay.lst) TABS(2) OBJECT(.\Objects\delay.obj)
+
+line level    source
+
+   1          #include "delay.h"
+   2          
+   3          static unsigned int _1ms;
+   4          
+   5          
+   6          void delay_init(unsigned long crystal)
+   7          {
+   8   1        // Machine cycle time =  1/(cystal / 12e6) (us)
+   9   1        // for 1ms need 1000 / (11.494 * machine cycle time)
+  10   1        // 11.494 is constant tested on simulation
+  11   1        _1ms = 1000 / (11.494 / (crystal / 12000000.0));
+  12   1      }
+  13          
+  14          void delay(unsigned int ms)
+  15          {
+  16   1        unsigned int i;
+  17   1        while (ms--)
+  18   1          for (i=_1ms; i>0; i--);
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     91    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

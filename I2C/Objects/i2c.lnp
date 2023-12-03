@@ -1,0 +1,4 @@
+".\Objects\i2c.obj",
+"..\UART\Objects\UART.LIB" 
+TO ".\Objects\i2c" 
+PRINT(".\Listings\i2c.m51")

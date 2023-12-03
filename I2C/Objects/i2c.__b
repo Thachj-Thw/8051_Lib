@@ -1,0 +1,3 @@
+TRANSFER
+".\Objects\i2c.obj" 
+TO ".\Objects\i2c.LIB"

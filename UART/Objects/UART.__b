@@ -1,0 +1,3 @@
+TRANSFER
+".\Objects\UART.obj" 
+TO ".\Objects\UART.LIB"

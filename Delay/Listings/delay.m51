@@ -1,0 +1,117 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    12/03/2023  22:52:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\BIN\BL51.EXE .\Objects\delay.obj TO .\Objects\delay PRINT (.\Listings\delay.m51)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\delay.obj (DELAY)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51FPS.LIB (?C?FCAST)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51FPS.LIB (?C?CASTF)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51S.LIB (?C?LNEG)
+
+
+LINK MAP OF MODULE:  .\Objects\delay (DELAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?DELAY
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     016DH     UNIT         ?C?LIB_CODE
+            CODE    0170H     003CH     UNIT         ?PR?_DELAY_INIT?DELAY
+            CODE    01ACH     001FH     UNIT         ?PR?_DELAY?DELAY
+            CODE    01CBH     0014H     UNIT         ?PR?MAIN?DELAY
+            CODE    01DFH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\delay (DELAY)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DELAY
+
+?PR?MAIN?DELAY
+  +--> ?PR?_DELAY_INIT?DELAY
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\delay (DELAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/03/2023  22:52:10  PAGE 2
+
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:01ACH         PUBLIC        _delay
+  C:01CBH         PUBLIC        main
+  C:0170H         PUBLIC        _delay_init
+  D:0008H         SYMBOL        _1ms
+  -------         PROC          _DELAY_INIT
+  D:0004H         SYMBOL        crystal
+  C:0170H         LINE#         6
+  C:0170H         LINE#         7
+  C:0170H         LINE#         11
+  C:01ABH         LINE#         12
+  -------         ENDPROC       _DELAY_INIT
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:01ACH         LINE#         14
+  C:01ACH         LINE#         15
+  C:01ACH         LINE#         17
+  C:01B6H         LINE#         18
+  C:01CAH         LINE#         19
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:01CBH         LINE#         22
+  C:01CBH         LINE#         23
+  C:01CBH         LINE#         24
+  C:01D6H         LINE#         25
+  C:01DDH         LINE#         26
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        ?C?FPDIV
+  C:0006H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:00ADH         PUBLIC        ?C?FCASTC
+  C:00A8H         PUBLIC        ?C?FCASTI
+  C:00A3H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:00E1H         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?LNEG
+  C:0162H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+Program Size: data=11.0 xdata=0 code=491
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
