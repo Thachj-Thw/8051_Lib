@@ -1,0 +1,490 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    12/05/2023  02:10:27  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\BIN\BL51.EXE .\Objects\AT24C3x.obj, ..\I2C\Objects\i2c.LIB TO .\Objects\AT24C3x P
+>> RINT (.\Listings\AT24C3x.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\AT24C3x.obj (AT24C3X)
+  ..\I2C\Objects\i2c.LIB (I2C)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  E:\ELECTRICAL\APPLICATION\KEIL_C51\C51\LIB\C51S.LIB (?C?CSTOPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\AT24C3x (AT24C3X)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000CH     UNIT         ?DT?_AT24C3X_WRITE_ARRAY?AT24C3X
+            DATA    0014H     000AH     UNIT         ?DT?_AT24C3X_READ_ARRAY?AT24C3X
+            DATA    001EH     0002H     UNIT         ?DT?_AT24C3X_READ?AT24C3X
+            BIT     0020H.0   0000H.2   UNIT         _BIT_GROUP_
+                    0020H.2   0000H.6                *** GAP ***
+            DATA    0021H     0003H     UNIT         ?DT?AT24C3X
+            DATA    0024H     0003H     UNIT         _DATA_GROUP_
+            DATA    0027H     0001H     UNIT         ?DT?_AT24C3X_WRITE?AT24C3X
+            DATA    0028H     0001H     UNIT         ?DT?AT24C3X_STREAM_READ?AT24C3X
+            IDATA   0029H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     006FH     UNIT         ?PR?_AT24C3X_WRITE_ARRAY?AT24C3X
+            CODE    0072H     004FH     UNIT         ?C?LIB_CODE
+            CODE    00C1H     004DH     UNIT         ?PR?_AT24C3X_READ_ARRAY?AT24C3X
+            CODE    010EH     0030H     UNIT         ?PR?_I2C_TRANSMIT?I2C
+            CODE    013EH     002CH     UNIT         ?PR?I2C_RECEIVE?I2C
+            CODE    016AH     0027H     UNIT         ?PR?MAIN?AT24C3X
+            CODE    0191H     0026H     UNIT         ?PR?_AT24C3X_READ?AT24C3X
+            CODE    01B7H     0023H     UNIT         ?PR?_AT24C3X_STREAM_WRITE?AT24C3X
+            CODE    01DAH     001BH     UNIT         ?PR?_SEND_CONTROL_BYTE?AT24C3X
+            CODE    01F5H     0017H     UNIT         ?PR?_AT24C3X_WRITE?AT24C3X
+            CODE    020CH     0013H     UNIT         ?PR?_AT24C3X_START_STREAM_WRITE?AT24C3X
+            CODE    021FH     0010H     UNIT         ?PR?AT24C3X_STREAM_READ?AT24C3X
+            CODE    022FH     000FH     UNIT         ?PR?_AT24C3X_START_STREAM_READ?AT24C3X
+            CODE    023EH     000FH     UNIT         ?PR?I2C_START?I2C
+            CODE    024DH     000EH     UNIT         ?PR?DELAY?I2C
+            CODE    025BH     000EH     UNIT         ?PR?_I2C_START_RECEIVE?I2C
+            CODE    0269H     000CH     UNIT         ?PR?_I2C_START_TRANSMIT?I2C
+            CODE    0275H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0281H     0008H     UNIT         ?PR?I2C_STOP?I2C
+            CODE    0289H     0008H     UNIT         ?PR?I2C_NACK?I2C
+            CODE    0291H     0006H     UNIT         ?PR?I2C_ACK?I2C
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 2
+
+
+            CODE    0297H     0003H     UNIT         ?PR?AT24C3X_STOP_STREAM_WRITE?AT24C3X
+            CODE    029AH     0003H     UNIT         ?PR?AT24C3X_STOP_STREAM_READ?AT24C3X
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\AT24C3x (AT24C3X)
+
+
+SEGMENT                                            BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                           START    LENGTH     START    LENGTH
+-----------------------------------------------------------------------------------
+?C_C51STARTUP                                   -----    -----      -----    -----
+  +--> ?PR?MAIN?AT24C3X
+
+?PR?MAIN?AT24C3X                                -----    -----      -----    -----
+  +--> ?PR?_AT24C3X_START_STREAM_WRITE?AT24C3X
+  +--> ?PR?_AT24C3X_STREAM_WRITE?AT24C3X
+  +--> ?PR?AT24C3X_STOP_STREAM_WRITE?AT24C3X
+
+?PR?_AT24C3X_START_STREAM_WRITE?AT24C3X         -----    -----      -----    -----
+  +--> ?PR?_SEND_CONTROL_BYTE?AT24C3X
+
+?PR?_SEND_CONTROL_BYTE?AT24C3X                  -----    -----      0025H    0002H
+  +--> ?PR?_I2C_START_TRANSMIT?I2C
+  +--> ?PR?_I2C_TRANSMIT?I2C
+
+?PR?_I2C_START_TRANSMIT?I2C                     -----    -----      -----    -----
+  +--> ?PR?I2C_START?I2C
+  +--> ?PR?_I2C_TRANSMIT?I2C
+
+?PR?I2C_START?I2C                               -----    -----      -----    -----
+  +--> ?PR?DELAY?I2C
+
+?PR?_I2C_TRANSMIT?I2C                           0020H.1  0000H.1    -----    -----
+  +--> ?PR?DELAY?I2C
+
+?PR?_AT24C3X_STREAM_WRITE?AT24C3X               0020H.0  0000H.1    0024H    0001H
+  +--> ?PR?_I2C_TRANSMIT?I2C
+  +--> ?PR?I2C_STOP?I2C
+  +--> ?PR?_SEND_CONTROL_BYTE?AT24C3X
+
+?PR?I2C_STOP?I2C                                -----    -----      -----    -----
+  +--> ?PR?DELAY?I2C
+
+?PR?AT24C3X_STOP_STREAM_WRITE?AT24C3X           -----    -----      -----    -----
+  +--> ?PR?I2C_STOP?I2C
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\AT24C3x (AT24C3X)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        AT24C3X
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:029AH         PUBLIC        AT24C3x_stop_stream_read
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 3
+
+
+  C:0297H         PUBLIC        AT24C3x_stop_stream_write
+  C:016AH         PUBLIC        main
+  C:01DAH         SYMBOL        _send_control_byte
+  D:0021H         SYMBOL        stream_next_rom_address
+  D:0023H         SYMBOL        stream_device_address
+  C:021FH         PUBLIC        AT24C3x_stream_read
+  C:0191H         PUBLIC        _AT24C3x_read
+  C:01B7H         PUBLIC        _AT24C3x_stream_write
+  C:022FH         PUBLIC        _AT24C3x_start_stream_read
+  C:00C1H         PUBLIC        _AT24C3x_read_array
+  C:01F5H         PUBLIC        _AT24C3x_write
+  C:020CH         PUBLIC        _AT24C3x_start_stream_write
+  C:0003H         PUBLIC        _AT24C3x_write_array
+  -------         PROC          _SEND_CONTROL_BYTE
+  D:0007H         SYMBOL        device_addr
+  D:0025H         SYMBOL        rom_addr
+  C:01DAH         LINE#         8
+  C:01DEH         LINE#         9
+  C:01DEH         LINE#         10
+  C:01E3H         LINE#         11
+  C:01E4H         LINE#         12
+  C:01ECH         LINE#         13
+  C:01EDH         LINE#         14
+  C:01F4H         LINE#         15
+  -------         ENDPROC       _SEND_CONTROL_BYTE
+  -------         PROC          _AT24C3X_WRITE
+  D:0007H         SYMBOL        device_addr
+  D:0004H         SYMBOL        rom_addr
+  D:0027H         SYMBOL        _data
+  C:01F5H         LINE#         18
+  C:01F7H         LINE#         19
+  C:01F7H         LINE#         20
+  C:0200H         LINE#         22
+  C:0203H         LINE#         23
+  C:0208H         LINE#         24
+  C:020BH         LINE#         25
+  -------         ENDPROC       _AT24C3X_WRITE
+  -------         PROC          _AT24C3X_READ
+  D:001EH         SYMBOL        device_addr
+  D:0004H         SYMBOL        rom_addr
+  -------         DO            
+  D:001FH         SYMBOL        buffer
+  -------         ENDDO         
+  C:0191H         LINE#         28
+  C:0193H         LINE#         29
+  C:0193H         LINE#         31
+  C:019CH         LINE#         32
+  C:019FH         LINE#         33
+  C:01A4H         LINE#         34
+  C:01A9H         LINE#         35
+  C:01AEH         LINE#         36
+  C:01B1H         LINE#         37
+  C:01B4H         LINE#         38
+  C:01B6H         LINE#         39
+  -------         ENDPROC       _AT24C3X_READ
+  -------         PROC          _AT24C3X_WRITE_ARRAY
+  D:0008H         SYMBOL        device_addr
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 4
+
+
+  D:0004H         SYMBOL        rom_addr
+  D:000BH         SYMBOL        _data
+  D:000EH         SYMBOL        len
+  -------         DO            
+  D:0010H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  D:0012H         SYMBOL        next_addr
+  -------         ENDDO         
+  C:0003H         LINE#         42
+  C:000BH         LINE#         43
+  C:000BH         LINE#         45
+  C:0014H         LINE#         47
+  C:0018H         LINE#         48
+  C:001BH         LINE#         49
+  C:002BH         LINE#         50
+  C:002BH         LINE#         51
+  C:003DH         LINE#         52
+  C:003DH         LINE#         53
+  C:0040H         LINE#         54
+  C:0048H         LINE#         55
+  C:004AH         LINE#         56
+  C:004AH         LINE#         57
+  C:004DH         LINE#         58
+  C:005BH         LINE#         59
+  C:0064H         LINE#         60
+  C:0064H         LINE#         61
+  C:006EH         LINE#         62
+  C:0071H         LINE#         63
+  -------         ENDPROC       _AT24C3X_WRITE_ARRAY
+  -------         PROC          _AT24C3X_READ_ARRAY
+  D:0014H         SYMBOL        device_addr
+  D:0004H         SYMBOL        rom_addr
+  D:0017H         SYMBOL        buffer
+  D:001AH         SYMBOL        len
+  -------         DO            
+  D:001CH         SYMBOL        i
+  -------         ENDDO         
+  C:00C1H         LINE#         66
+  C:00C9H         LINE#         67
+  C:00C9H         LINE#         69
+  C:00D2H         LINE#         71
+  C:00D5H         LINE#         72
+  C:00E5H         LINE#         73
+  C:00E5H         LINE#         74
+  C:00EAH         LINE#         75
+  C:00FDH         LINE#         76
+  C:0100H         LINE#         77
+  C:010AH         LINE#         78
+  C:010DH         LINE#         79
+  -------         ENDPROC       _AT24C3X_READ_ARRAY
+  -------         PROC          _AT24C3X_START_STREAM_WRITE
+  D:0007H         SYMBOL        device_addr
+  D:0004H         SYMBOL        rom_addr
+  C:020CH         LINE#         81
+  C:020CH         LINE#         82
+  C:020CH         LINE#         83
+  C:0215H         LINE#         85
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 5
+
+
+  C:0217H         LINE#         86
+  C:021BH         LINE#         87
+  C:021EH         LINE#         88
+  -------         ENDPROC       _AT24C3X_START_STREAM_WRITE
+  -------         PROC          _AT24C3X_STREAM_WRITE
+  D:0007H         SYMBOL        _data
+  -------         DO            
+  B:0020H.0       SYMBOL        nack
+  D:0024H         SYMBOL        j
+  -------         ENDDO         
+  C:01B7H         LINE#         91
+  C:01B7H         LINE#         92
+  C:01B7H         LINE#         95
+  C:01BAH         LINE#         96
+  C:01C2H         LINE#         97
+  C:01C4H         LINE#         98
+  C:01C4H         LINE#         99
+  C:01C7H         LINE#         100
+  C:01C9H         LINE#         101
+  C:01CCH         LINE#         102
+  C:01D9H         LINE#         103
+  C:01D9H         LINE#         104
+  -------         ENDPROC       _AT24C3X_STREAM_WRITE
+  -------         PROC          AT24C3X_STOP_STREAM_WRITE
+  C:0297H         LINE#         106
+  C:0297H         LINE#         107
+  C:0297H         LINE#         108
+  -------         ENDPROC       AT24C3X_STOP_STREAM_WRITE
+  -------         PROC          _AT24C3X_START_STREAM_READ
+  D:0007H         SYMBOL        device_addr
+  D:0004H         SYMBOL        rom_addr
+  C:022FH         LINE#         112
+  C:022FH         LINE#         113
+  C:022FH         LINE#         114
+  C:0238H         LINE#         116
+  C:023AH         LINE#         117
+  C:023DH         LINE#         118
+  -------         ENDPROC       _AT24C3X_START_STREAM_READ
+  -------         PROC          AT24C3X_STREAM_READ
+  -------         DO            
+  D:0028H         SYMBOL        buf
+  -------         ENDDO         
+  C:021FH         LINE#         121
+  C:021FH         LINE#         122
+  C:021FH         LINE#         124
+  C:0224H         LINE#         125
+  C:0229H         LINE#         126
+  C:022CH         LINE#         127
+  C:022EH         LINE#         128
+  -------         ENDPROC       AT24C3X_STREAM_READ
+  -------         PROC          AT24C3X_STOP_STREAM_READ
+  C:029AH         LINE#         131
+  C:029AH         LINE#         132
+  C:029AH         LINE#         133
+  -------         ENDPROC       AT24C3X_STOP_STREAM_READ
+  -------         PROC          MAIN
+  C:016AH         LINE#         137
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 6
+
+
+  C:016AH         LINE#         138
+  C:016AH         LINE#         139
+  C:0173H         LINE#         140
+  C:0178H         LINE#         141
+  C:017DH         LINE#         142
+  C:0182H         LINE#         143
+  C:0187H         LINE#         144
+  C:018CH         LINE#         145
+  C:018FH         LINE#         146
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        AT24C3X
+
+  -------         MODULE        I2C
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0289H         PUBLIC        i2c_nack
+  C:0291H         PUBLIC        i2c_ack
+  C:023EH         PUBLIC        i2c_start
+  C:0254H         SYMBOL        delay
+  B:00B0H.4       PUBLIC        P3_4
+  B:00B0H.5       PUBLIC        P3_5
+  C:0281H         PUBLIC        i2c_stop
+  C:013EH         PUBLIC        i2c_receive
+  C:010EH         PUBLIC        _i2c_transmit
+  C:025BH         PUBLIC        _i2c_start_receive
+  C:0269H         PUBLIC        _i2c_start_transmit
+  C:024FH         SYMBOL        L?0022
+  -------         PROC          L?0021
+  -------         ENDPROC       L?0021
+  C:024FH         SYMBOL        L?0022
+  -------         PROC          DELAY
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0254H         LINE#         4
+  C:0254H         LINE#         5
+  C:0254H         LINE#         7
+  C:025AH         LINE#         8
+  -------         ENDPROC       DELAY
+  -------         PROC          I2C_START
+  C:023EH         LINE#         10
+  C:023EH         LINE#         11
+  C:023EH         LINE#         12
+  C:0240H         LINE#         13
+  C:0242H         LINE#         14
+  C:0245H         LINE#         15
+  C:0247H         LINE#         16
+  C:024AH         LINE#         17
+  C:024CH         LINE#         18
+  -------         ENDPROC       I2C_START
+  -------         PROC          I2C_STOP
+  C:0281H         LINE#         20
+  C:0281H         LINE#         21
+  C:0281H         LINE#         22
+  C:0281H         LINE#         23
+  C:0281H         LINE#         24
+  C:0281H         LINE#         25
+  C:0284H         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 7
+
+
+  C:0286H         LINE#         27
+  -------         ENDPROC       I2C_STOP
+  -------         PROC          I2C_ACK
+  C:0291H         LINE#         30
+  C:0291H         LINE#         31
+  C:0291H         LINE#         32
+  C:0291H         LINE#         33
+  C:0291H         LINE#         34
+  C:0291H         LINE#         35
+  C:0294H         LINE#         36
+  C:0296H         LINE#         37
+  -------         ENDPROC       I2C_ACK
+  -------         PROC          I2C_NACK
+  C:0289H         LINE#         39
+  C:0289H         LINE#         40
+  C:0289H         LINE#         41
+  C:028BH         LINE#         42
+  C:028BH         LINE#         43
+  C:028BH         LINE#         44
+  C:028EH         LINE#         45
+  C:0290H         LINE#         46
+  -------         ENDPROC       I2C_NACK
+  -------         PROC          _I2C_TRANSMIT
+  D:0006H         SYMBOL        _data
+  -------         DO            
+  B:0020H.1       SYMBOL        ACK
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:010EH         LINE#         48
+  C:0110H         LINE#         49
+  C:0110H         LINE#         52
+  C:0112H         LINE#         53
+  C:0112H         LINE#         54
+  C:011FH         LINE#         55
+  C:011FH         LINE#         56
+  C:011FH         LINE#         57
+  C:0122H         LINE#         58
+  C:0124H         LINE#         59
+  C:012DH         LINE#         60
+  C:0130H         LINE#         61
+  C:0132H         LINE#         62
+  C:0136H         LINE#         63
+  C:0139H         LINE#         64
+  C:013BH         LINE#         65
+  C:013DH         LINE#         66
+  -------         ENDPROC       _I2C_TRANSMIT
+  -------         PROC          I2C_RECEIVE
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0006H         SYMBOL        _data
+  -------         ENDDO         
+  C:013EH         LINE#         68
+  C:013EH         LINE#         69
+  C:013EH         LINE#         72
+  C:0140H         LINE#         73
+  C:0142H         LINE#         74
+  C:0142H         LINE#         75
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 8
+
+
+  C:0145H         LINE#         76
+  C:0147H         LINE#         77
+  C:0150H         LINE#         78
+  C:0153H         LINE#         79
+  C:0155H         LINE#         80
+  C:0157H         LINE#         81
+  C:015AH         LINE#         82
+  C:015CH         LINE#         83
+  C:0162H         LINE#         84
+  C:0165H         LINE#         85
+  C:0167H         LINE#         86
+  C:0169H         LINE#         87
+  -------         ENDPROC       I2C_RECEIVE
+  -------         PROC          _I2C_START_TRANSMIT
+  D:0006H         SYMBOL        device_adr
+  C:0269H         LINE#         89
+  C:026BH         LINE#         90
+  C:026BH         LINE#         91
+  C:026EH         LINE#         92
+  -------         ENDPROC       _I2C_START_TRANSMIT
+  -------         PROC          _I2C_START_RECEIVE
+  D:0006H         SYMBOL        device_adr
+  C:025BH         LINE#         95
+  C:025DH         LINE#         96
+  C:025DH         LINE#         97
+  C:0260H         LINE#         98
+  -------         ENDPROC       _I2C_START_RECEIVE
+  -------         ENDMOD        I2C
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0072H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:009FH         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_AT24C3X_WRITE?AT24C3X
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_AT24C3X_READ?AT24C3X
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_AT24C3X_WRITE_ARRAY?AT24C3X
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_AT24C3X_READ_ARRAY?AT24C3X
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_AT24C3X_START_STREAM_READ?AT24C3X
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?AT24C3X_STREAM_READ?AT24C3X
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?AT24C3X_STOP_STREAM_READ?AT24C3X
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/05/2023  02:10:27  PAGE 9
+
+
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_ACK?I2C
+
+Program Size: data=41.2 xdata=0 code=669
+LINK/LOCATE RUN COMPLETE.  8 WARNING(S),  0 ERROR(S)

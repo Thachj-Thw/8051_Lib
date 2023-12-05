@@ -1,0 +1,4 @@
+TRANSFER
+".\Objects\AT24C3x.obj",
+"..\I2C\Objects\i2c.LIB" 
+TO ".\Objects\AT24C3x.LIB"

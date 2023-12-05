@@ -1,0 +1,4 @@
+".\Objects\AT24C3x.obj",
+"..\I2C\Objects\i2c.LIB" 
+TO ".\Objects\AT24C3x" 
+PRINT(".\Listings\AT24C3x.m51")

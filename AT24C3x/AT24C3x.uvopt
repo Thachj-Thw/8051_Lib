@@ -201,8 +201,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\AT24Cxx.c</PathWithFileName>
-      <FilenameWithoutPath>AT24Cxx.c</FilenameWithoutPath>
+      <PathWithFileName>.\AT24C3x.c</PathWithFileName>
+      <FilenameWithoutPath>AT24C3x.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -213,8 +213,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\AT24Cxx.h</PathWithFileName>
-      <FilenameWithoutPath>AT24Cxx.h</FilenameWithoutPath>
+      <PathWithFileName>.\AT24C3x.h</PathWithFileName>
+      <FilenameWithoutPath>AT24C3x.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

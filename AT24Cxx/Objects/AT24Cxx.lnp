@@ -1,5 +1,0 @@
-".\Objects\AT24Cxx.obj",
-"..\I2C\Objects\i2c.LIB",
-"..\UART\Objects\UART.LIB" 
-TO ".\Objects\AT24Cxx" 
-PRINT(".\Listings\AT24Cxx.m51")

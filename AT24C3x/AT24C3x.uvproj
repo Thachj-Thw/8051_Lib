@@ -46,7 +46,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>AT24Cxx</OutputName>
+          <OutputName>AT24C3x</OutputName>
           <CreateExecutable>0</CreateExecutable>
           <CreateLib>1</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -377,14 +377,14 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>AT24Cxx.c</FileName>
+              <FileName>AT24C3x.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\AT24Cxx.c</FilePath>
+              <FilePath>.\AT24C3x.c</FilePath>
             </File>
             <File>
-              <FileName>AT24Cxx.h</FileName>
+              <FileName>AT24C3x.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\AT24Cxx.h</FilePath>
+              <FilePath>.\AT24C3x.h</FilePath>
             </File>
           </Files>
         </Group>

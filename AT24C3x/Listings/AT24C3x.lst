@@ -1,0 +1,151 @@
+C51 COMPILER V9.60.7.0   AT24C3X                                                           12/05/2023 02:24:25 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE AT24C3X
+OBJECT MODULE PLACED IN .\Objects\AT24C3x.obj
+COMPILER INVOKED BY: E:\Electrical\Application\Keil_C51\C51\BIN\C51.EXE AT24C3x.c OPTIMIZE(8,SPEED) INCDIR(..\I2C) DEBUG
+                    - OBJECTEXTEND PRINT(.\Listings\AT24C3x.lst) TABS(2) OBJECT(.\Objects\AT24C3x.obj)
+
+line level    source
+
+   1          #include "AT24C3x.h"
+   2          #include "i2c.h"
+   3          
+   4          
+   5          static unsigned char stream_device_address;
+   6          static unsigned int stream_next_rom_address;
+   7          
+   8          static bit send_control_byte(unsigned char device_addr, unsigned int rom_addr)
+   9          {
+  10   1        if (i2c_start_transmit(device_addr))
+  11   1          return 1;
+  12   1        if (i2c_transmit(rom_addr >> 8))
+  13   1          return 1;
+  14   1        return i2c_transmit(rom_addr & 0x00ff);
+  15   1      }
+  16          
+  17          
+  18          void AT24C3x_write(unsigned char device_addr, unsigned int rom_addr, unsigned char _data)
+  19          {
+  20   1        if (rom_addr > 0xffff)
+  21   1          return;
+  22   1        send_control_byte(device_addr, rom_addr);
+  23   1        i2c_transmit(_data);
+  24   1        i2c_stop();
+  25   1      }
+  26          
+  27          
+  28          unsigned char AT24C3x_read(unsigned char device_addr, unsigned int rom_addr)
+  29          {
+  30   1        unsigned char buffer;
+  31   1        if (rom_addr > 0xffff)
+  32   1          return '\0';
+  33   1        send_control_byte(device_addr, rom_addr);
+  34   1        i2c_start_receive(device_addr);
+  35   1        buffer = i2c_receive();
+  36   1        i2c_nack();
+  37   1        i2c_stop();
+  38   1        return buffer;
+  39   1      }
+  40          
+  41          
+  42          void AT24C3x_write_array(unsigned char device_addr, unsigned int rom_addr, unsigned char* _data, unsigned 
+             -int len)
+  43          {
+  44   1        bit nack;
+  45   1        unsigned int i, next_addr;
+  46   1        if (rom_addr > 0xffff)
+  47   1          return;
+  48   1        next_addr = rom_addr;
+  49   1        send_control_byte(device_addr, rom_addr);
+  50   1        for (i=0; i<len; i++)
+  51   1        {
+  52   2          if (_data[i] == '\0')
+  53   2            break;
+C51 COMPILER V9.60.7.0   AT24C3X                                                           12/05/2023 02:24:25 PAGE 2   
+
+  54   2          i2c_transmit(_data[i]);
+  55   2          next_addr++;
+  56   2          if ((next_addr & 0x00ff) == 0x0000)
+  57   2          {
+  58   3            i2c_stop();
+  59   3            nack = send_control_byte(device_addr, next_addr);
+  60   3            while (nack)
+  61   3              nack = send_control_byte(device_addr, next_addr);
+  62   3          }
+  63   2        }
+  64   1        i2c_stop();
+  65   1      }
+  66          
+  67          
+  68          void AT24C3x_read_array(unsigned char device_addr, unsigned int rom_addr, unsigned char* buffer, unsigned 
+             -int len)
+  69          {
+  70   1        unsigned int i;
+  71   1        if (rom_addr > 0xffff)
+  72   1          return;
+  73   1        send_control_byte(device_addr, rom_addr);
+  74   1        for (i=0; i<len; i++)
+  75   1        {
+  76   2          i2c_start_receive(device_addr);
+  77   2          buffer[i] = i2c_receive();
+  78   2          i2c_nack();
+  79   2        }
+  80   1        i2c_stop();
+  81   1      }
+  82          
+  83          void AT24C3x_start_stream(unsigned char device_addr, unsigned int rom_addr)
+  84          {
+  85   1        if (rom_addr > 0xffff)
+  86   1          return;
+  87   1        stream_device_address = device_addr;
+  88   1        stream_next_rom_address = rom_addr;
+  89   1        send_control_byte(stream_device_address, rom_addr);
+  90   1      }
+  91          
+  92          
+  93          void AT24C3x_stream_write(unsigned char _data)
+  94          {
+  95   1        bit nack;
+  96   1        i2c_transmit(_data);
+  97   1        stream_next_rom_address++;
+  98   1        if ((stream_next_rom_address & 0x00ff) == 0x0000)
+  99   1        {
+ 100   2          i2c_stop();
+ 101   2          nack = send_control_byte(stream_device_address, stream_next_rom_address);
+ 102   2          while (nack)
+ 103   2            nack = send_control_byte(stream_device_address, stream_next_rom_address);
+ 104   2        }
+ 105   1      }
+ 106          
+ 107          
+ 108          unsigned char AT24C3x_stream_read(void)
+ 109          {
+ 110   1        unsigned char buf;
+ 111   1        i2c_start_receive(stream_device_address);
+ 112   1        buf = i2c_receive();
+ 113   1        i2c_nack();
+ 114   1        return buf;
+C51 COMPILER V9.60.7.0   AT24C3X                                                           12/05/2023 02:24:25 PAGE 3   
+
+ 115   1      }
+ 116          
+ 117          
+ 118          void AT24C3x_stop_stream(void)
+ 119          {
+ 120   1        i2c_stop();
+ 121   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    344    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3      28
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       2
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
