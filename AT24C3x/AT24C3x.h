@@ -3,6 +3,7 @@
 */
 #ifndef _AT24C3x_H_
 #define _AT24C3x_H_
+#include "main.h"
 
 #ifndef I2C_SDA
 #define I2C_SDA					P3_4

@@ -1,12 +1,10 @@
 #ifndef _DELAY_H_
 #define _DELAY_H_
+#include "main.h"
 
-/**
- * caculate time delay using crystal frequency
- *
- * @param crystal frequency
-*/
-void delay_init(unsigned long);
+#ifndef XTAL_FREQ
+#define XTAL_FREQ 12000000ul // crystal frequency
+#endif //XTAL_FREQ
 
 /**
  * delay miliseconds

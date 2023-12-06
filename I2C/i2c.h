@@ -1,6 +1,8 @@
 #ifndef	_I2C_H_
 #define	_I2C_H_
+
 #include <REGX51.H>
+#include "main.h"
 
 #ifndef I2C_SDA
 #define I2C_SDA	P3_4
