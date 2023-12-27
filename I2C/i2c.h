@@ -13,7 +13,7 @@
 #endif	//I2C_SCL
 
 #ifndef I2C_DELAY
-#define I2C_DELAY	10
+#define I2C_DELAY	250			// max 655535
 #endif  //I2C_DELAY
 
 /**

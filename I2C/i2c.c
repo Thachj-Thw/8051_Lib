@@ -3,7 +3,7 @@
 
 static void delay(void)
 {
-	unsigned char i;
+	unsigned int i;
 	for (i=0; i<I2C_DELAY; i++);
 }
 
