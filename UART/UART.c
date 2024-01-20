@@ -1,25 +1,24 @@
 #include <REGX51.H>
 #include "UART.h"
 
-#message "The UART.h only works correctly at 11.0592MHz and max baud rate is 57600"
+
+static const unsigned int code COEFFICIENT = XTAL_FREQ / 384;
 
 
 void UART_init(unsigned int baud_rate)
 {
-	if (baud_rate > 57600)									// baud rate to hight
-		return;
 	SCON = 0x50;														// set uart mode 1, receive enable; SM0=0 SM1=1 REN=1
 	TMOD = (TMOD & 0x0F) | 0x20;						// set timer1 mode 2 and keep mode of timer0
 	// caculate timer overflow
-	if (28800 % baud_rate != 0)
+	if (COEFFICIENT % baud_rate != 0)
 	{
 		PCON |= 0x80;													// PCON.7(SMOD) = 1 for baud_rate * 2
-		TH1 = 256 - 57600 / baud_rate;				// 256 - (2 * crystal / (12 * 32))/baud
+		TH1 = 256 - (2 * COEFFICIENT) / baud_rate;				// 256 - (2 * crystal / (12 * 32))/baud
 	}
 	else
 	{
 		PCON &= 0x7F;													// PCON.7 (SMOD) = 0
-		TH1 = 256 - 28800 / baud_rate;				// 256 - (crystal / (12 * 32))/baud
+		TH1 = 256 - COEFFICIENT / baud_rate;				// 256 - (crystal / (12 * 32))/baud
 	}
 	TR1 = 1;																// Start timer1
 }
@@ -31,20 +30,17 @@ void UART_putchar(char c)
 	TI = 0;
 }
 
-char UART_getchar()
+void UART_getchar(char* c)
 {	
-	char c;
 	while (!RI);
-	c = SBUF;
+	*c = SBUF;
 	RI = 0;
-	return c;
 }
 
 void UART_print(char* str)
 {
-	int i = 0;
-	while (str[i])
-		UART_putchar(str[i++]);
+	while (*str)
+		UART_putchar(*str++);
 }
 
 void UART_println(char* str)
@@ -78,7 +74,7 @@ int _UART_read_until(char buffer[], int maxlen, char end)
 	char c;
 	for (i = 0; i < maxlen; i++)
 	{
-		c = UART_getchar();
+		UART_getchar(&c);
 		if (c == end)
 		{
 			buffer[i] = '\0';
@@ -92,4 +88,10 @@ int _UART_read_until(char buffer[], int maxlen, char end)
 bit UART_available()
 {
 	return RI;
+}
+
+void UART_clear()
+{
+	while (RI)
+		RI = 0;
 }

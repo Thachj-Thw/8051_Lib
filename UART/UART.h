@@ -1,5 +1,11 @@
 #ifndef _UART_H_
 #define _UART_H_
+///#include "main.h"
+
+
+#ifndef	XTAL_FREQ
+#define XTAL_FREQ				22118400ul
+#endif
 
 
 #define UART_read(s)							_UART_read(s, sizeof(s) / sizeof(s[0]))
@@ -24,13 +30,13 @@ void UART_init(unsigned int);
 void UART_putchar(char);
 
 /**
- * get a char from Serial
+ * get a char from Serial and put to buffer paramenter
  * not return until readed a char
  * 
- * @param null
- * @return a char read form Serial
+ * @param buffer
+ * @return null
  */
-char UART_getchar(void);
+void UART_getchar(char*);
 
 
 /**
@@ -80,5 +86,14 @@ int _UART_read_until(char[], int, char);
  * @return 0 if no data to read, 1 if had data
  */
 bit UART_available(void);
+
+
+/**
+ * Clear serial buffer
+ * 
+ * @param null
+ * @return null
+ */
+void UART_clear(void);
 
 #endif	// _UART_H_

@@ -19,20 +19,23 @@ CPU DLL:         S8051.DLL V3.125.1.0
 Dialog DLL:      DP51.DLL V2.69.0.0 
 <h2>Project:</h2>
 E:\Electrical\Project\8051\Lib\UART\UART.uvproj
-Project File Date:  10/10/2023
+Project File Date:  01/20/2024
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling UART.c...
-UART.c(4): message C320: "The UART.h only works correctly at 11.0592MHz and max baud rate is 57600"
-creating library .\Objects\UART.LIB...
-TRANSFER
-".\Objects\UART.obj" 
-TO ".\Objects\UART.LIB"
-LIB51 LIBRARY MANAGER V4.30.1.0
-COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2014
-".\Objects\UART.LIB" - 0 Error(s), 0 Warning(s).
-Build Time Elapsed:  00:00:01
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART_PRINTLN?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__UART_READ?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?__UART_READ_UNTIL?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_AVAILABLE?UART
+Program Size: data=24.0 xdata=0 code=510
+".\Objects\UART" - 0 Error(s), 4 Warning(s).
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

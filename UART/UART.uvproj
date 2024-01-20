@@ -47,8 +47,8 @@
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
           <OutputName>UART</OutputName>
-          <CreateExecutable>0</CreateExecutable>
-          <CreateLib>1</CreateLib>
+          <CreateExecutable>1</CreateExecutable>
+          <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
@@ -233,7 +233,7 @@
               <RCB>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x10000</Size>
+                <Size>0xffff</Size>
               </RCB>
               <RXB>
                 <Type>0</Type>
